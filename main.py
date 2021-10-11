@@ -1,0 +1,84 @@
+from utilitarios.bienvenida import *
+from utilitarios.estilos import *
+from manejo_datos.manejo_archivos import *
+from algoritmos.dijkstra import *
+from algoritmos.imprimir import *
+from algoritmos.mostrar_ruta import mostrar_ruta
+import msvcrt
+
+
+def main():
+    try:
+        bienvenida()
+
+        nom_archivo = styled_input('Nombre del archivo a leer: ')
+
+        grafo = leer_archivo(nom_archivo)
+
+        while True :
+            bienvenida()
+
+            print_adjacency_list(grafo, 'grafo')
+            
+            # Comprobamos si se ingresa un nodo válido
+            inicio = styled_input('\nDigite el nodo inicial: ')
+            while(inicio == '' or int(inicio) >= len(grafo) or int(inicio) < 0):
+                styled_print('rojo', 'Nodo ingresado no válido...')
+                inicio = styled_input('\nDigite el nodo inicial: ')
+                    
+            (arbol_busqueda, padres) = dijkstra(grafo, int(inicio))
+            
+            print()
+            print_adjacency_list(arbol_busqueda, 'arbol')
+
+            escribir_archivo(arbol_busqueda, inicio)
+            
+            styled_print('verde', '\nSe ha creado un archivo con el árbol de búsqueda\n')
+            styled_print('verde', 'Pulse una tecla para continuar...', '')
+            msvcrt.getwch()
+
+            mostrar_ruta(arbol_busqueda, padres, inicio)
+
+            print('\n\n¿Desea encontrar otra ruta?')
+            styled_print('verde', '\t[1] : Sí', '')
+            print('  |  ', end='')
+            styled_print('rojo', '[2] : No\n')
+
+            rpta = styled_input('Respuesta: ')
+
+            while rpta == '' or int(rpta) < 1 or int(rpta) > 2:
+                styled_print('rojo', 'Respuesta no válida')
+                rpta = styled_input('\nRespuesta: ')
+
+            # Respuesta negativa
+            if rpta == '2':
+                break
+
+
+    # Si se ingresa un nombre de archivo no válido
+    except FileNotFoundError: 
+        print('\nAl parecer, el archivo \'', end='')
+        styled_print('rojo', str(nom_archivo), '')
+        print('\' no existe')
+    
+    # Si se ingresa un archivo con extensión no válida
+    except UnicodeDecodeError:
+        print('\nAl parecer, \'', end='')
+        styled_print('rojo', str(nom_archivo), '')
+        print('\' es un archivo no válido, debe ser ', end='')
+        styled_print('azul', '.txt')
+
+    # Si un nodo ingresado no es un un número
+    except ValueError:
+        styled_print('rojo', '\nError, se ha introducido un valor no válido')
+    
+    except:
+        styled_print('rojo', '\nHa ocurrido un error en el ingreso de datos')
+
+    styled_print('rojo', '\nEl programa ha finalizado')
+    styled_print('rojo', 'Pulse una tecla para continuar...', '')
+    msvcrt.getch()
+
+
+if __name__ == '__main__':
+    main()
