@@ -22,7 +22,7 @@ def main():
             
             # Comprobamos si se ingresa un nodo válido
             inicio = styled_input('\nDigite el nodo inicial: ')
-            while(inicio == '' or int(inicio) >= len(grafo) or int(inicio) < 0):
+            while inicio == '' or int(inicio) >= len(grafo) or int(inicio) < 0:
                 styled_print('rojo', 'Nodo ingresado no válido...')
                 inicio = styled_input('\nDigite el nodo inicial: ')
                     
