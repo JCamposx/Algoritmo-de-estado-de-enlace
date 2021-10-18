@@ -24,6 +24,7 @@ def dijkstra(grafo, inicio):
     # Definimos un arreglo de padres de cada nodo
     padre = [-1 for x in grafo]
 
+    # Mientras la cola tenga elementos
     while len(cola) > 0:
         inicio = cola[0]
         for vecino in grafo[inicio]:

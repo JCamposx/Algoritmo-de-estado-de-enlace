@@ -9,6 +9,7 @@ colores = {
     }
 
 
+# Imprimir con colores
 def styled_print(color, msg, end_=None):
     if end_ is None:
         print(colores[color] + msg + colores['reset'])
@@ -16,6 +17,7 @@ def styled_print(color, msg, end_=None):
         print(colores[color] + msg + colores['reset'], end='')
 
 
+# Mostrar lo que ingrese el usuario de otro color
 def styled_input(msg):
     print(msg, end='' + colores['cyan'])
 
