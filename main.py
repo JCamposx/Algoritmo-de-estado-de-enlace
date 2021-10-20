@@ -38,7 +38,7 @@ def main():
             # Generar archivo de texto del árbol de búsqueda generado
             escribir_archivo(arbol_busqueda, inicio)
             styled_print('verde', '\nSe ha creado un archivo con el árbol de búsqueda\n')
-            styled_print('verde', 'Pulse una tecla para continuar...', '')
+            styled_print('verde', 'Pulse una tecla para continuar...')
             msvcrt.getwch()
 
             # Mostrar la ruta más corta del nodo inicial y otro nodo
@@ -82,7 +82,7 @@ def main():
         styled_print('rojo', '\nHa ocurrido un error en el ingreso de datos')
 
     styled_print('rojo', '\nEl programa ha finalizado')
-    styled_print('rojo', 'Pulse una tecla para continuar...', '')
+    styled_print('rojo', 'Pulse una tecla para continuar...')
     msvcrt.getch()
 
 
