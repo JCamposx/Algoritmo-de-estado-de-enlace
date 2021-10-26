@@ -3,12 +3,14 @@ Algoritmo de estado de enlace teniendo como base el Algoritmo de Dijkstra desarr
 
 ## Instrucciones
 El programa toma como base un grafo el cual debe de estar en un **archivo.txt**, el cual debe de estar estructurado de la siguiente manera:  
-
-**nodo -> vecino-peso ; vecino-peso ...**  
-**nodo -> vecino-peso ; vecino-peso ...**  
-**nodo -> vecino-peso ; vecino-peso ...**  
-**...**  
-
+```
+nodo -> vecino-peso ; vecino-peso ...  
+nodo -> vecino-peso ; vecino-peso ...  
+nodo -> vecino-peso ; vecino-peso ...  
+.  
+.  
+.  
+```
 Se han brindado como ejemplo 2 archivos, los cuales tienen por nombre **Topologia_1.txt** y **Topologia_2.txt**.  
 
 ## Resultados
