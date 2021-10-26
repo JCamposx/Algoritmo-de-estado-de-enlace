@@ -1,5 +1,5 @@
 # Algoritmo estado de enlace
-Algoritmo de estado de enlace teniendo como base el Algoritmo de Dijkstra desarrollado en Python 3.8.10.  
+Algoritmo de Estado de Enlace teniendo como base el algoritmo de Dijkstra desarrollado en Python 3.8.10.  
 
 ## Instrucciones
 El programa toma como base un grafo el cual debe de estar en un **archivo.txt**, el cual debe de estar estructurado de la siguiente manera:  
